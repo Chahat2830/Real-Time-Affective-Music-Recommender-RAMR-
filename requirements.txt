@@ -10,11 +10,12 @@ streamlit-webrtc
 opencv-python
 deepface
 
-# --- TensorFlow and Keras Compatibility (Direct Fix) ---
+# --- TensorFlow and Keras Compatibility (The final fix) ---
+# Ensure the version that the environment uses is listed
 tensorflow==2.20.0 
-# Install the core Keras library (Keras 3)
+# Install the core Keras 3 library
 keras
-# Install the compatibility package explicitly requested by the error message
+# Install the exact compatibility package requested by the error
 tf-keras 
-# Protobuf is constrained to satisfy deepface's mediapipe dependencies
+# Protobuf constraint is necessary for deepface's dependencies
 protobuf<5.0
