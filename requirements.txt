@@ -1,4 +1,4 @@
-# --- Core Libraries ---
+# --- Core Libraries (Clean) ---
 numpy
 pandas
 scikit-learn
@@ -6,16 +6,11 @@ joblib
 streamlit
 streamlit-webrtc
 
-# --- Computer Vision ---
+# --- Computer Vision (Only OpenCV) ---
 opencv-python
-deepface
 
-# --- TensorFlow and Keras Compatibility (The final fix) ---
-# Ensure the version that the environment uses is listed
+# --- TensorFlow and Keras Compatibility (Simplified) ---
+# We still need TensorFlow/Keras for model loading (even if not for the main pipeline)
 tensorflow==2.20.0 
-# Install the core Keras 3 library
 keras
-# Install the exact compatibility package requested by the error
-tf-keras 
-# Protobuf constraint is necessary for deepface's dependencies
-protobuf<5.0
+protobuf>=5.28.0
