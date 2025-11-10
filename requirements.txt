@@ -1,11 +1,19 @@
+# --- Core Libraries ---
 numpy
 pandas
 scikit-learn
 joblib
 streamlit
 streamlit-webrtc
+
+# --- Computer Vision ---
 opencv-python-headless
 deepface
-tensorflow==2.10.0
-tf-keras
-protobuf==4.25.3
+
+# --- Deep Learning (Updated for Python 3.13) ---
+# Use the latest available TensorFlow version (2.20.0) which supports Python 3.13.
+tensorflow==2.20.0
+# The newer TensorFlow versions require Keras to be explicitly installed.
+keras
+# Protobuf must be updated to satisfy TensorFlow 2.20.0
+protobuf>=4.25.3
