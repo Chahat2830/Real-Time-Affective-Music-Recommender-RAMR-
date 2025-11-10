@@ -6,12 +6,15 @@ joblib
 streamlit
 streamlit-webrtc
 
-# --- Computer Vision ---
+# --- Computer Vision & Deep Learning ---
+# Standard OpenCV is preferred over headless for Streamlit Cloud (libGL dependencies)
 opencv-python
 deepface
 
-# --- Deep Learning (Keras 2 Compatibility) ---
-# TensorFlow 2.15 is the last version that natively supports Keras 2.x imports (tf.keras)
-tensorflow==2.15.0
-# Protobuf version is set to a stable pre-v5 version to satisfy deepface dependencies (which still rely on mediapipe/older Keras).
+# --- TensorFlow and Keras 3 Compatibility ---
+# Use latest stable TensorFlow (v2.20.0 or higher) for Python 3.13 compatibility
+tensorflow==2.20.0 
+# Keras 3.0 is the standalone version required by TensorFlow 2.16+
+keras
+# Protobuf is constrained to satisfy deepface's dependencies (mediapipe)
 protobuf<5.0
