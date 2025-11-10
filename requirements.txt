@@ -7,13 +7,11 @@ streamlit
 streamlit-webrtc
 
 # --- Computer Vision ---
-opencv-python-headless
+opencv-python
 deepface
 
-# --- Deep Learning (Updated for Python 3.13) ---
-# Use the latest available TensorFlow version (2.20.0) which supports Python 3.13.
-tensorflow==2.20.0
-# The newer TensorFlow versions require Keras to be explicitly installed.
-keras
-# Protobuf must be updated to satisfy TensorFlow 2.20.0
-protobuf>=4.25.3
+# --- Deep Learning (Keras 2 Compatibility) ---
+# TensorFlow 2.15 is the last version that natively supports Keras 2.x imports (tf.keras)
+tensorflow==2.15.0
+# Protobuf version is set to a stable pre-v5 version to satisfy deepface dependencies (which still rely on mediapipe/older Keras).
+protobuf<5.0
