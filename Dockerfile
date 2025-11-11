@@ -1,14 +1,16 @@
-# Use a slightly less-minimal Debian base image for better compatibility
-# with complex system libraries like those required by deepface/OpenCV.
-FROM python:3.10
+# Start from a robust, stable Debian base image
+FROM debian:bookworm-slim
 
-# Set environment variable to prevent interactive apt-get prompts
+# Set non-interactive mode for installation
 ENV DEBIAN_FRONTEND=noninteractive
 
-# --- CRITICAL SYSTEM PACKAGE INSTALLATION ---
-# Install system dependencies in one command for robustness and cleanup
+# 1. Install necessary system dependencies (apt-get)
+# This includes the Python runtime and required development tools
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+    python3 \
+    python3-pip \
+    python3-dev \
     libgl1-mesa-glx \
     libgomp1 \
     libsm6 \
@@ -17,18 +19,19 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Set the working directory inside the container
+# Set the working directory
 WORKDIR /app
 
-# Copy the requirements file and install Python packages
+# 2. Install Python dependencies (pip)
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
 
-# Copy the rest of your application code
+# 3. Copy application code
 COPY . .
 
-# Expose the default Streamlit port
+# Expose Streamlit port
 EXPOSE 8501
 
-# Define the command to run your Streamlit app
-CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+# 4. Define the command to run the Streamlit app
+# We use python3 instead of the generic python command here for explicit control
+CMD ["python3", "-m", "streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
