@@ -1,4 +1,4 @@
-# --- Core Libraries (Clean) ---
+# --- Core Libraries ---
 numpy
 pandas
 scikit-learn
@@ -6,13 +6,14 @@ joblib
 streamlit
 streamlit-webrtc
 
-# --- Computer Vision (Only OpenCV) ---
+# --- Computer Vision ---
 opencv-python
 
-# --- Third-Party Deep Learning Library (NEW) ---
+# --- Third-Party Deep Learning Library ---
 deepface 
 
-# --- TensorFlow and Keras Compatibility (Simplified) ---
+# --- TensorFlow and Keras Compatibility (FIXED) ---
 tensorflow==2.20.0 
-keras
+tf-keras # <-- FIX: Install the required legacy Keras package
+# Remove 'keras' entirely as it is now likely redundant or conflicts with tf-keras
 protobuf>=5.28.0
