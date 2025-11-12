@@ -9,8 +9,10 @@ streamlit-webrtc
 # --- Computer Vision (Only OpenCV) ---
 opencv-python
 
+# --- Third-Party Deep Learning Library (NEW) ---
+deepface 
+
 # --- TensorFlow and Keras Compatibility (Simplified) ---
-# We still need TensorFlow/Keras for model loading (even if not for the main pipeline)
 tensorflow==2.20.0 
 keras
 protobuf>=5.28.0
