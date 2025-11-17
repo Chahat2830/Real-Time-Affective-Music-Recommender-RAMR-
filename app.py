@@ -12,12 +12,17 @@ warnings.filterwarnings("ignore", category=UserWarning)
 
 # --- GLOBAL CONFIGURATION ---
 
-# 1. RTC Configuration Fix: Use multiple STUN servers for better connectivity in deployed environments
+# 1. RTC Configuration Fix: Use a comprehensive list of public STUN servers.
+# NOTE: If this configuration fails, a dedicated TURN server with credentials is required
+# because the deployment environment's firewall is blocking UDP traffic.
 RTC_CONFIGURATION = {
     "iceServers": [
         {"urls": ["stun:stun.l.google.com:19302"]},
         {"urls": ["stun:global.stun.twilio.com:3478"]},
         {"urls": ["stun:stunserver.org:3478"]},
+        # Adding more public servers for redundancy
+        {"urls": ["stun:stun.services.mozilla.com"]},
+        {"urls": ["stun:stun.nextcloud.com:443"]},
     ]
 }
 
@@ -180,6 +185,10 @@ with tab1:
         video_transformer_factory=EmotionDetector,
         rtc_configuration=RTC_CONFIGURATION
     )
+    
+    # Check for stream failure and display a warning
+    if ctx.state.ice_connection_state == "failed":
+        st.error("Connection failed! Your network/deployment environment may be blocking UDP ports. Consider using a dedicated TURN server (requires credentials).")
 
     if ctx.video_transformer:
         # Retrieve the emotion property safely
