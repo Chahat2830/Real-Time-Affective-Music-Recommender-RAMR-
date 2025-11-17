@@ -6,6 +6,4 @@ streamlit
 streamlit-webrtc
 opencv-python-headless
 deepface
-tensorflow==2.10.0
-tf-keras
-protobuf==4.25.3
+tensorflow>=2.10.0
