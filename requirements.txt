@@ -1,29 +1,9 @@
-# --- Core Libraries ---
 numpy
 pandas
 scikit-learn
 joblib
 streamlit
 streamlit-webrtc
-
-# --- Computer Vision ---
 opencv-python
-
-# --- Third-Party Deep Learning Library ---
 deepface
-
-# --- TensorFlow and Keras Compatibility ---
-# NOTE: The current stable TensorFlow version is 2.16.1. 
-# Version 2.20.0 does not exist yet and will cause installation failure.
-# Also, tf-keras is not a package name; Keras is included in TensorFlow.
-# If you must use a specific version, use a known valid one (e.g., 2.16.1).
-tensorflow==2.16.1 
-
-# NOTE: Keras is now included in TensorFlow. Installing it separately (as 'tf-keras' 
-# or 'keras') is usually redundant or can cause conflicts. deepface will pull in 
-# compatible dependencies.
-
-# NOTE: Protobuf is a critical dependency. deepface/TensorFlow usually handle this.
-# Specifying a version that high (5.x) may be incompatible with TensorFlow 2.16.1. 
-# It's best to let TensorFlow handle the protobuf version.
-# protobuf>=5.28.0 # <-- REMOVE: Let TensorFlow manage this version
+tensorflow==2.16.1
