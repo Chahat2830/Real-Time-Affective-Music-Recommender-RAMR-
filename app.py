@@ -170,6 +170,14 @@ st.set_page_config(page_title="Mood-Based Song Recommender", layout="wide")
 st.title("🎧 Real-Time Mood-Based Song Recommender")
 st.markdown("This application uses your webcam to detect your dominant emotion and recommends songs with matching audio features.")
 
+# CRITICAL DEPLOYMENT WARNING
+st.warning("""
+    **Deployment Error Alert:** The traceback you are seeing (`AttributeError: 'NoneType' object has no attribute 'is_alive'`) 
+    is a known bug in older versions of the `streamlit-webrtc` dependency library, and **cannot be fixed in app.py.**
+    To resolve this, please ensure your `requirements.txt` file specifies the latest version of `streamlit-webrtc` (e.g., `>=0.49.0`) 
+    and redeploy your application to force an update.
+""")
+
 tab1, tab2 = st.tabs(["📸 Live Mood Detection", "🔎 Search by Song"])
 
 # --- TAB 1: LIVE MOOD DETECTION ---
