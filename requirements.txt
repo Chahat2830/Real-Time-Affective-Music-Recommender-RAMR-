@@ -6,4 +6,4 @@ streamlit
 streamlit-webrtc
 opencv-python
 deepface
-tensorflow==2.16.1
+tensorflow==2.20.0
