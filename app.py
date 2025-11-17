@@ -186,8 +186,13 @@ with tab1:
         rtc_configuration=RTC_CONFIGURATION
     )
     
-    # Check for stream failure and display a warning
-    if ctx.state.ice_connection_state == "failed":
+    # Defensive Fix: Check if ctx and ctx.state exist before checking the connection state
+    is_failed = False
+    if ctx and hasattr(ctx, 'state') and hasattr(ctx.state, 'ice_connection_state'):
+        if ctx.state.ice_connection_state == "failed":
+            is_failed = True
+
+    if is_failed:
         st.error("Connection failed! Your network/deployment environment may be blocking UDP ports. Consider using a dedicated TURN server (requires credentials).")
 
     if ctx.video_transformer:
