@@ -1,13 +1,13 @@
 # --- Core Data/ML Libraries ---
-numpy
+# PINNING NUMPY: Forces a clean, known-good version for stability
+numpy==1.24.4
 pandas
 scikit-learn
 joblib
 
 # --- Deep Learning/Computer Vision ---
-# FIXED: Downgraded TensorFlow to 2.11.0 to resolve the 'tf-keras' / Keras 3 compatibility issue 
-# with retinaface (a dependency of deepface).
-tf-keras
+# Downgraded TensorFlow to 2.11.0 to resolve Keras 3 issues
+tensorflow==2.11.0 
 
 # Pin the deepface version for stability
 deepface
@@ -18,6 +18,4 @@ opencv-python-headless==4.6.0.66
 # --- Streamlit and Real-time WebCam ---
 streamlit
 streamlit-webrtc
-
-# Necessary dependency for streamlit-webrtc's underlying WebRTC protocol stack
 aiortc
