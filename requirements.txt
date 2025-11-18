@@ -1,15 +1,13 @@
 # --- Core Data/ML Libraries ---
-# PINNING NUMPY: Forces a clean, known-good version for stability
-numpy==1.24.4
+# PINNED: To avoid "numpy.core.multiarray failed to import" errors
+numpy==1.24.4 
 pandas
 scikit-learn
 joblib
 
 # --- Deep Learning/Computer Vision ---
-# Downgraded TensorFlow to 2.11.0 to resolve Keras 3 issues
+# PINNED: To resolve the 'tf-keras' / Keras 3 compatibility issue with retinaface/deepface
 tensorflow==2.11.0 
-
-# Pin the deepface version for stability
 deepface
 
 # Pin OpenCV to a known stable headless version for cloud deployment
