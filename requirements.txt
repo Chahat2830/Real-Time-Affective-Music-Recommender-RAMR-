@@ -1,9 +1,26 @@
+# --- Core Data/ML Libraries ---
 numpy
 pandas
 scikit-learn
 joblib
+
+# --- Deep Learning/Computer Vision ---
+# tensorflow should be pinned to a version known to be stable with deepface and Python 3.9/3.10.
+# 2.10.0 is often the last stable version before the Keras 3 transition started causing issues.
+tensorflow==2.10.0 
+
+# Pin the deepface version, as its dependencies often cause conflicts.
+# The latest stable versions often fix past dependency issues.
+deepface
+
+# opencv-python-headless is necessary for deepface, but a specific, non-headless version is
+# often required to work with some webcams/GUIs. Use the standard one or pin a stable version.
+opencv-python-headless==4.6.0.66 
+
+# --- Streamlit and Real-time WebCam ---
 streamlit
 streamlit-webrtc
-opencv-python-headless
-deepface
-tensorflow>=2.10.0
+
+# Add this dependency for streamlit-webrtc to work correctly
+# with the underlying WebRTC protocol stack
+aiortc
