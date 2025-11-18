@@ -227,3 +227,4 @@ with tab2:
                     st.success(f"Playlist based on {input_song['track_name']} generated!")
                     for i, song in enumerate(recommendations, 1):
                         st.markdown(f"**{i}.** {song}")
+
