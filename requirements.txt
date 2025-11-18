@@ -1,10 +1,14 @@
-# requirements.txt
+# Pinning NumPy to avoid the "multiarray failed to import" ABI error
 numpy==1.24.4 
 pandas
 scikit-learn
 joblib
+
+# Pinned TensorFlow for Keras 3 compatibility with DeepFace
 tensorflow==2.11.0 
 deepface
+
+# OpenCV headless and Streamlit dependencies
 opencv-python-headless==4.6.0.66 
 streamlit
 streamlit-webrtc
