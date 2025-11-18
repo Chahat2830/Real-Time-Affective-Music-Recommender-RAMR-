@@ -5,22 +5,19 @@ scikit-learn
 joblib
 
 # --- Deep Learning/Computer Vision ---
-# tensorflow should be pinned to a version known to be stable with deepface and Python 3.9/3.10.
-# 2.10.0 is often the last stable version before the Keras 3 transition started causing issues.
-tensorflow==2.10.0 
+# FIXED: Downgraded TensorFlow to 2.11.0 to resolve the 'tf-keras' / Keras 3 compatibility issue 
+# with retinaface (a dependency of deepface).
+tensorflow==2.11.0
 
-# Pin the deepface version, as its dependencies often cause conflicts.
-# The latest stable versions often fix past dependency issues.
+# Pin the deepface version for stability
 deepface
 
-# opencv-python-headless is necessary for deepface, but a specific, non-headless version is
-# often required to work with some webcams/GUIs. Use the standard one or pin a stable version.
+# Pin OpenCV to a known stable headless version for cloud deployment
 opencv-python-headless==4.6.0.66 
 
 # --- Streamlit and Real-time WebCam ---
 streamlit
 streamlit-webrtc
 
-# Add this dependency for streamlit-webrtc to work correctly
-# with the underlying WebRTC protocol stack
+# Necessary dependency for streamlit-webrtc's underlying WebRTC protocol stack
 aiortc
