@@ -7,7 +7,7 @@ joblib
 # --- Deep Learning/Computer Vision ---
 # FIXED: Downgraded TensorFlow to 2.11.0 to resolve the 'tf-keras' / Keras 3 compatibility issue 
 # with retinaface (a dependency of deepface).
-tensorflow==2.11.0
+tf-keras
 
 # Pin the deepface version for stability
 deepface
