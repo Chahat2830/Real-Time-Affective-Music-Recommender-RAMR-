@@ -1,19 +1,10 @@
-# --- Core Data/ML Libraries ---
-# PINNED: To avoid "numpy.core.multiarray failed to import" errors
 numpy==1.24.4 
 pandas
 scikit-learn
 joblib
-
-# --- Deep Learning/Computer Vision ---
-# PINNED: To resolve the 'tf-keras' / Keras 3 compatibility issue with retinaface/deepface
 tensorflow==2.11.0 
 deepface
-
-# Pin OpenCV to a known stable headless version for cloud deployment
 opencv-python-headless==4.6.0.66 
-
-# --- Streamlit and Real-time WebCam ---
 streamlit
 streamlit-webrtc
 aiortc
